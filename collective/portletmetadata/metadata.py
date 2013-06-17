@@ -20,28 +20,37 @@ _ = MessageFactory('plone')
 
 
 class CssClassesVocabulary(object):
+    """ Dummy vocabulary, to be overridden """
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        return SimpleVocabulary([SimpleTerm('class1'),
-                                 SimpleTerm('class2')])
+        return SimpleVocabulary([
+            SimpleTerm('class1'),
+            SimpleTerm('class2')
+        ])
 
 class IPortletMetadata(form.Schema):
     """ Schema for portlet metadata """
 
-    is_local = schema.Bool(title=_(u"Local portlet"),
-                           description=_(u" "),
-                           required=False)
+    is_local = schema.Bool(
+        title=_(u"Local portlet"),
+        description=_(u" "),
+        required=False
+    )
 
-    css_class = schema.Choice(title=_(u"CSS class"),
-                              description=_(u" "),
-                              vocabulary='plone.app.portlets.CssClasses',
-                              required=False)
+    css_class = schema.Choice(
+        title=_(u"CSS class"),
+        description=_(u" "),
+        vocabulary='collective.portletmetadata.CssClasses',
+        required=False
+    )
 
-    exclude_search = schema.Bool(title=(u"Exclude from search"),
-                                 description=_(u" "),
-                                 required=False,
-                                 default=True)
+    exclude_search = schema.Bool(
+        title=(u"Exclude from search"),
+        description=_(u" "),
+        required=False,
+        default=True
+    )
 
 
 class PortletMetadataAdapter(object):
@@ -74,23 +83,3 @@ class PortletMetadataEditForm(z3cformhelper.EditForm):
 
     def getContent(self):
         return IPortletMetadata(self.context)
-
-#    @button.buttonAndHandler(_(u'Save'), name='save')
-#    def handleApply(self, action):
-#        data, errors = self.extractData()
-#        if errors:
-#            self.status = self.formErrorsMessage
-#            return
-#        self.applyChanges(data)
-#        IStatusMessage(self.request).addStatusMessage(_(u"Changes saved"),
-#                                                      "info")
-#        self.request.response.redirect(self.context.__parent__.absolute_url() +
-#                                       '/@@manage-portlets')
-#
-#    @button.buttonAndHandler(_(u'Cancel'), name='cancel')
-#    def handleCancel(self, action):
-#        IStatusMessage(self.request).addStatusMessage(_(u"Edit cancelled"),
-#                                                      "info")
-#        self.request.response.redirect(self.context.__parent__.absolute_url() +
-#                                       '/@@manage-portlets')
-
