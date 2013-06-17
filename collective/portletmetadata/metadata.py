@@ -70,13 +70,6 @@ class PortletMetadataAdapter(object):
         settings = IPortletAssignmentSettings(self.context)
         return settings.get(attr, None)
 
-    # XXX: Can these be removed?
-    def __setitem__(self, attr, value):
-        self.__setattr__(attr, value)
-
-    def __getitem__(self, attr):
-        return self.__getattr__(attr)
-
 
 class PortletMetadataEditForm(z3cformhelper.EditForm):
     label = u'Edit portlet settings'

@@ -20,7 +20,7 @@
 
   <utility
       factory=".metadata.CssClassesVocabulary"
-      name="plone.app.portlets.CssClasses"
+      name="collective.portletmetadata.CssClasses"
       provides="zope.schema.interfaces.IVocabularyFactory"
       />
 
