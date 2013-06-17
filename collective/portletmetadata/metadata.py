@@ -29,6 +29,7 @@ class CssClassesVocabulary(object):
             SimpleTerm('class2')
         ])
 
+
 class IPortletMetadata(form.Schema):
     """ Schema for portlet metadata """
 
