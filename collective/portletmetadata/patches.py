@@ -12,7 +12,6 @@ import logging
 
 from ZODB.POSException import ConflictError
 
-from plone.app.portlets.browser.editmanager import EditPortletManagerRenderer
 from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletAssignmentSettings
 from plone.portlets.interfaces import IPortletRetriever
@@ -71,6 +70,7 @@ def portlets_for_assignments(self, assignments, manager, base_url):
     return data
 
 
+from plone.app.portlets.browser.editmanager import EditPortletManagerRenderer
 EditPortletManagerRenderer.portlets_for_assignments = portlets_for_assignments
 
 
