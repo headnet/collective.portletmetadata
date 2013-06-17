@@ -21,6 +21,8 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'plone.portlets',
+        'plone.app.portlets',
         'setuptools',
         'z3c.jbot',
         # -*- Extra requirements: -*-
