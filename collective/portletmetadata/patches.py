@@ -1,3 +1,13 @@
+"""
+   Two patches
+
+   - First (portlets_for_assignments) that generates the URL for
+     portlet metadata administration
+   - Second (_lazyLoadPortlets) that ensures that the settings dict
+     is exposed to the portlet renderer
+"""
+
+
 import logging
 
 from ZODB.POSException import ConflictError
@@ -9,7 +19,6 @@ from plone.portlets.interfaces import IPortletRetriever
 from plone.portlets.utils import hashPortletInfo
 
 from zope.component import getMultiAdapter, queryMultiAdapter
-
 
 logger = logging.getLogger('portlets')
 
@@ -45,17 +54,17 @@ def portlets_for_assignments(self, assignments, manager, base_url):
             visible = False
 
         data.append({
-            'title'       : assignments[idx].title,
-            'editview'    : editviewName,
-            'hash'        : portlet_hash,
-            'up_url'      : '%s/@@move-portlet-up?name=%s' % (base_url, name),
-            'down_url'    : '%s/@@move-portlet-down?name=%s' % (base_url, name),
-            'delete_url'  : '%s/@@delete-portlet?name=%s' % (base_url, name),
+            'title': assignments[idx].title,
+            'editview': editviewName,
+            'hash': portlet_hash,
+            'up_url': '%s/@@move-portlet-up?name=%s' % (base_url, name),
+            'down_url': '%s/@@move-portlet-down?name=%s' % (base_url, name),
+            'delete_url': '%s/@@delete-portlet?name=%s' % (base_url, name),
             'metadata_url': settingsviewName,
-            'hide_url'    : '%s/@@toggle-visibility?name=%s' % (base_url, name),
-            'show_url'    : '%s/@@toggle-visibility?name=%s' % (base_url, name),
-            'visible'     : visible,
-            })
+            'hide_url': '%s/@@toggle-visibility?name=%s' % (base_url, name),
+            'show_url': '%s/@@toggle-visibility?name=%s' % (base_url, name),
+            'visible': visible,
+        })
     if len(data) > 0:
         data[0]['up_url'] = data[-1]['down_url'] = None
 
