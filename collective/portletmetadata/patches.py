@@ -56,6 +56,7 @@ def portlets_for_assignments(self, assignments, manager, base_url):
             'title': assignments[idx].title,
             'editview': editviewName,
             'hash': portlet_hash,
+            'name': name,
             'up_url': '%s/@@move-portlet-up?name=%s' % (base_url, name),
             'down_url': '%s/@@move-portlet-down?name=%s' % (base_url, name),
             'delete_url': '%s/@@delete-portlet?name=%s' % (base_url, name),
