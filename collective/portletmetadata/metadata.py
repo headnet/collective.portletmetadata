@@ -1,33 +1,38 @@
-from Acquisition import aq_inner
-
+from plone.app.portlets.browser import z3cformhelper
 from plone.directives import form
 from plone.portlets.interfaces import IPortletAssignmentSettings, \
     IPortletAssignment
-from plone.app.portlets.browser import z3cformhelper
+from plone.registry.interfaces import IRegistry
 
 from zope import schema
-from zope.component import adapts
+from zope.component import adapts, getUtility
 from zope.interface import implements
-from zope.i18nmessageid import MessageFactory
 
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from zope.schema.interfaces import IVocabularyFactory
 
-
 from z3c.form import field
 
-_ = MessageFactory('plone')
+from collective.portletmetadata import MessageFactory as _
+from collective.portletmetadata.interfaces import IMetadataSettings
 
 
 class CssClassesVocabulary(object):
-    """ Dummy vocabulary, to be overridden """
+    """ Vocabulary for css classes, stored in the registry. """
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        return SimpleVocabulary([
-            SimpleTerm('class1'),
-            SimpleTerm('class2')
-        ])
+        result = []
+
+        try:
+            settings = getUtility(IRegistry).forInterface(IMetadataSettings)
+        except:
+            return SimpleVocabulary(result)
+
+        for css_class in settings.css_classes.split('\r'):
+            result.append(SimpleTerm(css_class))
+
+        return SimpleVocabulary(result)
 
 
 class IPortletMetadata(form.Schema):

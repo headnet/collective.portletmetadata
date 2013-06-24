@@ -14,6 +14,14 @@
       permission="plone.app.portlets.ManageOwnPortlets"
       />
 
+  <browser:page
+      name="portletmetadata-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.ControlPanel"
+      permission="cmf.ManagePortal"
+      layer=".interfaces.IBrowserLayer"
+      />
+
   <browser:jbot
       directory="overrides"
       layer=".interfaces.IBrowserLayer" />
