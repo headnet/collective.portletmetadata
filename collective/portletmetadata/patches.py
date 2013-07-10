@@ -71,10 +71,6 @@ def portlets_for_assignments(self, assignments, manager, base_url):
     return data
 
 
-from plone.app.portlets.browser.editmanager import EditPortletManagerRenderer
-EditPortletManagerRenderer.portlets_for_assignments = portlets_for_assignments
-
-
 @memoize
 def _lazyLoadPortlets(self, manager):
     retriever = getMultiAdapter((self.context, manager), IPortletRetriever)
@@ -109,5 +105,3 @@ def _lazyLoadPortlets(self, manager):
 
     return items
 
-from plone.app.portlets.manager import PortletManagerRenderer
-PortletManagerRenderer._lazyLoadPortlets = _lazyLoadPortlets

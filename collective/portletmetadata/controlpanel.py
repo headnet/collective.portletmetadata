@@ -13,7 +13,8 @@ class ControlPanelEditForm(controlpanel.RegistryEditForm):
 
     label = _(u"Configure portlet metadata")
     description = _(
-        u"This form lets you configure the settings for the portlet metadata extension."
+        u"This form lets you configure the settings for"
+        u"the portlet metadata extension."
     )
 
 
