@@ -13,11 +13,11 @@ class IBrowserLayer(Interface):
 class IMetadataSettings(Interface):
     """ Global site specific settings """
 
-    css_classes = schema.Text(
+    css_classes = schema.Tuple(
         title=_(u"CSS Classes"),
         description=_(u"Please enter the list of CSS classes, one per line"),
         required=False,
-        default=u'',
+        value_type=schema.TextLine(),
     )
 
 

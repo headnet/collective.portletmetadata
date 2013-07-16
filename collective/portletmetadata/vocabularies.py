@@ -21,7 +21,8 @@ class CssClassesVocabulary(object):
         except:
             return SimpleVocabulary(result)
 
-        for css_class in settings.css_classes.split('\r'):
-            result.append(SimpleTerm(css_class))
+        if settings.css_classes:
+            for css_class in settings.css_classes:
+                result.append(SimpleTerm(css_class))
 
         return SimpleVocabulary(result)
