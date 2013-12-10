@@ -3,8 +3,6 @@ from collective.portletmetadata import MessageFactory as _
 from zope.interface import Interface
 from zope import schema
 
-from plone.directives import form
-
 
 class IBrowserLayer(Interface):
     """ browser layer for the collective.portletmetadata package  """
@@ -21,7 +19,7 @@ class IMetadataSettings(Interface):
     )
 
 
-class IPortletMetadata(form.Schema):
+class IPortletMetadata(Interface):
     """ Schema for portlet metadata """
 
     is_local = schema.Bool(
