@@ -27,7 +27,8 @@ Related work
 ------------
 
 Ideally, this feature should be built into plone.app.portlets as described in
-[PLIP 12266](https://dev.plone.org/ticket/12266). The current milestone is set to
+[PLIP 12266](https://dev.plone.org/ticket/12266)
+the current milestone is set to
 Plone 5, but until Plone 5 is a reality this product can be used.
 
 Auhor
