@@ -20,8 +20,8 @@ Usage
 -----
 
 Whenever the product is installed a "*" will be visible in the @@manage-portlets
-view for each assignment. Whenever selects this option, he/she can edit the metadata
-as described above.
+view for each assignment. Whenever the user selects this option, he/she can edit
+the metadata as described above.
 
 Related work
 ------------
