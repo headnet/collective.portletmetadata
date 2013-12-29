@@ -1,12 +1,18 @@
 from setuptools import setup, find_packages
 
+def read(*pathnames):
+    return open(os.path.join(os.path.dirname(__file__), *pathnames)).read()
+
+version = '1.0'
+
 setup(
     name='collective.portletmetadata',
-    version='0.1',
+    version=version,
     description="Adds metadata functionality to portlets",
-    long_description="This package is a set of patches, that will let you "
-                     "add metadata (css classes, etc) to each portlet "
-                     "assignment",
+    long_description='\n'.join([
+        read('README.rst'),
+        read('CHANGES.rst'),
+    ]),
     classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
