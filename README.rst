@@ -11,7 +11,7 @@ the name of the product.
 Out of the box the product provides the following features:
 
 * Possibility for creating local portlets, i.e. portlets that will not be inherited
-  eventhough child settings imply so.
+  even though child settings imply so.
 * Possibility for adding a CSS class for a portlet assignment. These are defined
   in the controlpanel (stored in registry).
 * Possibility for excluding a portlet from being indexed by Google.
