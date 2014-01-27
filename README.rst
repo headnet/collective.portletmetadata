@@ -23,6 +23,8 @@ Whenever the product is installed a "*" will be visible in the @@manage-portlets
 view for each assignment. Whenever the user selects this option, he/she can edit
 the metadata as described above.
 
+See a short guide `here <http://bo.geekworld.dk/introducing-collective-portletmetadata/>`_.
+
 Related work
 ------------
 
