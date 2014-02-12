@@ -5,6 +5,11 @@
     </tal:block>
     <div tal:attributes="id string:portletwrapper-${portlet/hash};
                          class string:portletWrapper kssattr-portlethash-${portlet/hash};">
+      <div tal:define="picture portlet/settings/image|nothing"
+           tal:condition="picture"
+           class="portletMetadataImage">
+          <img tal:attributes="src string:${context/absolute_url}/${portlet/name}/edit-portlet-metadata/++widget++form.widgets.image/@@download" />
+      </div>
       <div tal:attributes="class portlet/settings/css_class | nothing">
         <tal:block content="structure python:view.safe_render(portlet['renderer'])" />
       </div>

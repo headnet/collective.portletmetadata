@@ -2,6 +2,7 @@ from collective.portletmetadata import MessageFactory as _
 
 from zope.interface import Interface
 from zope import schema
+from plone.namedfile import field
 
 
 class IBrowserLayer(Interface):
@@ -42,3 +43,9 @@ class IPortletMetadata(Interface):
         required=False,
         default=True
     )
+
+    image = field.NamedBlobImage(
+        title=u"Image",
+        required=False,
+    )
+
