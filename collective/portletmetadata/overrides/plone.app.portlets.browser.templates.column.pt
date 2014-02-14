@@ -2,16 +2,16 @@
     <tal:block condition="portlet/settings/exclude_search | nothing">
       <tal:block content="structure string:&lt;!-- googleoff: all --&gt;"></tal:block>
     </tal:block>
-    <div tal:attributes="id string:portletwrapper-${portlet/hash};
-                         class string:portletWrapper kssattr-portlethash-${portlet/hash};">
-      <div tal:define="picture portlet/settings/image|nothing"
-           tal:condition="picture"
-           class="portletMetadataImage">
-          <img tal:attributes="src string:${context/absolute_url}/${portlet/name}/edit-portlet-metadata/++widget++form.widgets.image/@@download" />
-      </div>
-      <div tal:attributes="class portlet/settings/css_class | nothing">
-        <tal:block content="structure python:view.safe_render(portlet['renderer'])" />
-      </div>
+    <div tal:define="picture portlet/settings/image|nothing;
+                     picture_class python: picture and 'portletMetadataHasImage' or '';
+                     css_class portlet/settings/css_class|string:;"
+         tal:attributes="id string:portletwrapper-${portlet/hash};
+                         class string:portletWrapper kssattr-portlethash-${portlet/hash} ${css_class} ${picture_class};">
+       <img tal:define="picture portlet/settings/image|nothing"
+            tal:condition="picture"
+            tal:attributes="src string:${context/absolute_url}/${portlet/name}/edit-portlet-metadata/++widget++form.widgets.image/@@download"
+            class="portletMetadataImage" />
+       <tal:block tal:content="structure python:view.safe_render(portlet['renderer'])" />
     </div>
     <tal:block condition="portlet/settings/exclude_search | nothing">
       <tal:block content="structure string:&lt;!-- googleon: all --&gt;"/>
