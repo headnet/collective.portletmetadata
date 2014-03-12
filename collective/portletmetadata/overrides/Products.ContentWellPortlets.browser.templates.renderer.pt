@@ -4,7 +4,17 @@ This means we can get rid of the "manage portlets" link that comes along with al
 </tal:comment>
 
 <tal:block repeat="portlet options/portlets">
-<div tal:attributes="id string:portletwrapper-${portlet/hash};
-                     class string:portletWrapper kssattr-portlethash-${portlet/hash};"
-     tal:content="structure python:view.safe_render(portlet['renderer'])" />
+    <tal:block condition="portlet/settings/exclude_search | nothing">
+      <tal:block content="structure string:&lt;!-- googleoff: all --&gt;"></tal:block>
+    </tal:block>
+
+    <div tal:attributes="id string:portletwrapper-${portlet/hash};
+                         class string:portletWrapper kssattr-portlethash-${portlet/hash};">
+      <div tal:attributes="class portlet/settings/css_class | nothing">
+        <tal:block content="structure python:view.safe_render(portlet['renderer'])" />
+      </div>
+    </div>
+    <tal:block condition="portlet/settings/exclude_search | nothing">
+      <tal:block content="structure string:&lt;!-- googleon: all --&gt;"/>
+    </tal:block>
 </tal:block>
