@@ -1,4 +1,5 @@
 <tal:block repeat="portlet options/portlets">
+  <tal:block condition="python:view.available(portlet)">
     <tal:block condition="portlet/settings/exclude_search | nothing">
       <tal:block content="structure string:&lt;!-- googleoff: all --&gt;"></tal:block>
     </tal:block>
@@ -11,6 +12,7 @@
     <tal:block condition="portlet/settings/exclude_search | nothing">
       <tal:block content="structure string:&lt;!-- googleon: all --&gt;"/>
     </tal:block>
+  </tal:block>
 </tal:block>
 
 <div class="managePortletsLink" tal:condition="view/can_manage_portlets"
