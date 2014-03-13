@@ -32,8 +32,8 @@ Ideally, this feature should be built into plone.app.portlets as described in
 `PLIP 12266 <https://dev.plone.org/ticket/12266>`_ the current milestone is set to
 Plone 5, but until Plone 5 is a reality this product can be used.
 
-Auhor
------
+Author
+------
 
 * Bo Simonsen <bo@headnet.dk>
 
