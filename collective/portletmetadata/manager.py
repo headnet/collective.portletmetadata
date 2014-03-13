@@ -6,6 +6,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from Acquisition import aq_inner, aq_parent
 
 from Products.CMFPlone.utils import isDefaultPage
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone.app.portlets.interfaces import IColumn
 from plone.app.portlets.manager import ColumnPortletManagerRenderer as \
@@ -14,6 +15,8 @@ from plone.app.portlets.manager import ColumnPortletManagerRenderer as \
 
 class ColumnPortletManagerRenderer(BaseColumnPortletManagerRenderer):
     adapts(Interface, IDefaultBrowserLayer, IBrowserView, IColumn)
+
+    template = ViewPageTemplateFile('column.pt')
 
     def available(self, info):
         """Only make available on definition context
