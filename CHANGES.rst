@@ -1,7 +1,7 @@
 Changes
 =======
 
-1.1 (unreleased)
+1.1 (2014-03-13)
 ----------------
 
 - Backported local portlets functionality
