@@ -4,7 +4,8 @@ Changes
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Support the local portlet checkbox for ContentWellPortlets.
+  [mauritsvanrees]
 
 
 1.1 (2014-03-13)

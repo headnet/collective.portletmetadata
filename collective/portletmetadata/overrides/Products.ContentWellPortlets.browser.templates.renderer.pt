@@ -4,6 +4,10 @@ This means we can get rid of the "manage portlets" link that comes along with al
 </tal:comment>
 
 <tal:block repeat="portlet options/portlets">
+  <tal:block define="is_local portlet/settings/is_local|nothing;
+                     compare_context context/@@plone_context_state/canonical_object;
+                     available python:True if not is_local else '/'.join(compare_context.getPhysicalPath()) == portlet['key'];"
+             condition="available">
     <tal:block condition="portlet/settings/exclude_search | nothing">
       <tal:block content="structure string:&lt;!-- googleoff: all --&gt;"></tal:block>
     </tal:block>
@@ -17,4 +21,5 @@ This means we can get rid of the "manage portlets" link that comes along with al
     <tal:block condition="portlet/settings/exclude_search | nothing">
       <tal:block content="structure string:&lt;!-- googleon: all --&gt;"/>
     </tal:block>
+  </tal:block>
 </tal:block>
