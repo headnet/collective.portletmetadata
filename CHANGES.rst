@@ -4,6 +4,11 @@ Changes
 1.2 (unreleased)
 ----------------
 
+- Allow ``class|descriptive title`` as format in the control panel.
+  When this format is used, we show the title in de portlet metadata
+  edit form.  A simple ``class`` is of course still supported.
+  [maurits]
+
 - Support the local portlet checkbox for ContentWellPortlets.
   [mauritsvanrees]
 

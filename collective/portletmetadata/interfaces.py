@@ -13,7 +13,8 @@ class IMetadataSettings(Interface):
 
     css_classes = schema.Tuple(
         title=_(u"CSS Classes"),
-        description=_(u"Please enter the list of CSS classes, one per line"),
+        description=_(u"Please enter the list of CSS classes, one per line. "
+                      u"Format: class or class|descriptive title."),
         required=False,
         value_type=schema.TextLine(),
     )
