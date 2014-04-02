@@ -23,6 +23,11 @@ class CssClassesVocabulary(object):
 
         if settings.css_classes:
             for css_class in settings.css_classes:
-                result.append(SimpleTerm(css_class))
+                value = css_class
+                if '|' in css_class:
+                    value, title = css_class.split('|', 1)
+                else:
+                    value = title = css_class
+                result.append(SimpleTerm(value=value, title=title))
 
         return SimpleVocabulary(result)
