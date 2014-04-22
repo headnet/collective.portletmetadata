@@ -1,7 +1,7 @@
 Changes
 =======
 
-1.2 (unreleased)
+1.2 (2014-04-22)
 ----------------
 
 - Allow ``class|descriptive title`` as format in the control panel.
