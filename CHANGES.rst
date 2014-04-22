@@ -1,6 +1,12 @@
 Changes
 =======
 
+1.3 (unreleased)
+--------------
+
+- Nothing changed yet.
+
+
 1.2 (2014-04-22)
 ----------------
 
@@ -19,7 +25,7 @@ Changes
 - Backported local portlets functionality
   [bosim]
 
-- Override Products/ContentWellPortlets/browser/templates/renderer.pt 
+- Override Products/ContentWellPortlets/browser/templates/renderer.pt
   [mauritsvanrees]
 
 
