@@ -33,7 +33,7 @@ setup(
         'plone.app.portlets',
         'setuptools',
         'z3c.jbot',
-        'z3c.unconfigure>=1.0.1',
+        'z3c.unconfigure<1.2',
         # -*- Extra requirements: -*-
     ],
     entry_points="""
