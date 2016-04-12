@@ -4,7 +4,9 @@ Changes
 1.3 (unreleased)
 --------------
 
-- Nothing changed yet.
+- Fix case in managing groups-and contenttype-portlets when the query-string
+  is no longer in the request.
+  [kroman0, pbauer]
 
 
 1.2 (2014-04-22)
