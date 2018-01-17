@@ -57,12 +57,12 @@ def portlets_for_assignments(self, assignments, manager, base_url):
             'editview': editviewName,
             'hash': portlet_hash,
             'name': name,
-            'up_url': '%s/@@move-portlet-up' % base_url,
-            'down_url': '%s/@@move-portlet-down' % base_url,
-            'delete_url': '%s/@@delete-portlet' % base_url,
+            'up_url': '%s/@@move-portlet-up' % (base_url),
+            'down_url': '%s/@@move-portlet-down' % (base_url),
+            'delete_url': '%s/@@delete-portlet' % (base_url),
             'metadata_url': settingsviewName,
-            'hide_url': '%s/@@toggle-visibility' % base_url,
-            'show_url': '%s/@@toggle-visibility' % base_url,
+            'hide_url': '%s/@@toggle-visibility' % (base_url),
+            'show_url': '%s/@@toggle-visibility' % (base_url),
             'visible': visible,
         })
     if len(data) > 0:

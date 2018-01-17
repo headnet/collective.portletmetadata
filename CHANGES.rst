@@ -8,6 +8,12 @@ Changes
   is no longer in the request.
   [kroman0, pbauer]
 
+- Plone 5 compatibility - this release requires plone 5 (p.a.portlets >= 4.0.0)
+  [sunew]
+
+- uninstall profile
+  [sunew]
+
 
 1.2 (2014-04-22)
 ----------------

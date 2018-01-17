@@ -1,4 +1,4 @@
-from plone.app.portlets.browser import z3cformhelper
+from plone.app.portlets.browser import formhelper
 from plone.portlets.interfaces import (
     IPortletAssignmentSettings,
     IPortletAssignment
@@ -29,9 +29,10 @@ class PortletMetadataAdapter(object):
         return settings.get(attr, None)
 
 
-class PortletMetadataEditForm(z3cformhelper.EditForm):
+class PortletMetadataEditForm(formhelper.EditForm):
     label = u'Edit portlet settings'
-    fields = field.Fields(IPortletMetadata)
+    # fields = field.Fields(IPortletMetadata)
+    schema = IPortletMetadata
 
     def getContent(self):
         return IPortletMetadata(self.context)

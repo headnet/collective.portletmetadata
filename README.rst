@@ -41,6 +41,5 @@ TODO
 ----
 
 * Better documentation
-* Integration into Plone 5
 
 

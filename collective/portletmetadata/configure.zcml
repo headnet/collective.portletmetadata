@@ -9,12 +9,20 @@
   <include package="Products.CMFCore" />
   <include package="plone.app.portlets" />
   <include package="z3c.jbot" file="meta.zcml" />
-  
+
   <genericsetup:registerProfile
       name="default"
       title="collective.portletmetadata"
       directory="profiles/default"
       description="Installs the collective.portletmetadata package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.portletmetadata (uninstall)"
+      directory="profiles/uninstall"
+      description="Uninstalls the collective.portletmetadata add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
