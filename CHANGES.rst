@@ -1,8 +1,8 @@
 Changes
 =======
 
-1.3 (unreleased)
---------------
+1.3 (2018-01-17)
+----------------
 
 - Fix case in managing groups-and contenttype-portlets when the query-string
   is no longer in the request.
