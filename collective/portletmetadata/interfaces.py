@@ -4,6 +4,7 @@ from zope.interface import Interface
 from zope import schema
 
 
+
 class IBrowserLayer(Interface):
     """ browser layer for the collective.portletmetadata package  """
 
@@ -37,8 +38,8 @@ class IPortletMetadata(Interface):
     )
 
     exclude_search = schema.Bool(
-        title=(u"Exclude from search"),
-        description=_(u" "),
+        title=_(u"Exclude from search"),
+        description=_(u"Use special tags to exclude from google indexing"),
         required=False,
-        default=True
+        default=False
     )
