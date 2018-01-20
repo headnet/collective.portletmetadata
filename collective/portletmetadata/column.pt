@@ -4,11 +4,11 @@
       <tal:block content="structure string:&lt;!-- googleoff: all --&gt;"></tal:block>
     </tal:block>
     <div class="portletWrapper"
+         tal:define="settings_css_class portlet/settings/css_class|nothing;"
          tal:attributes="id string:portletwrapper-${portlet/hash};
-                         data-portlethash portlet/hash">
-      <div tal:attributes="class portlet/settings/css_class | nothing">
-        <tal:block content="structure python:view.safe_render(portlet['renderer'])" />
-      </div>
+                         data-portlethash portlet/hash;
+                         class string:portletWrapper ${settings_css_class}">
+      <tal:block content="structure python:view.safe_render(portlet['renderer'])" />
     </div>
     <tal:block condition="portlet/settings/exclude_search | nothing">
       <tal:block content="structure string:&lt;!-- googleon: all --&gt;"/>

@@ -1,9 +1,7 @@
 from collective.portletmetadata import MessageFactory as _
 from collective.portletmetadata.interfaces import IMetadataSettings
-
 from plone.app.registry.browser import controlpanel
 from plone.z3cform import layout
-
 from z3c.form import field
 
 

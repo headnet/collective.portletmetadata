@@ -1,8 +1,7 @@
 from collective.portletmetadata import MessageFactory as _
-
-from zope.interface import Interface
+from plone.namedfile.field import NamedBlobImage
 from zope import schema
-
+from zope.interface import Interface
 
 
 class IBrowserLayer(Interface):
@@ -21,19 +20,20 @@ class IMetadataSettings(Interface):
     )
 
 
-class IPortletMetadata(Interface):
-    """ Schema for portlet metadata """
+class IPortletSettings(Interface):
+    """ Schema for portlet settings """
+
+    css_class = schema.Choice(
+        title=_(u"Appearance"),
+        description=_(u"The choice of appearance can effect "
+                      u"color and layout of the portlet."),
+        vocabulary='collective.portletmetadata.CssClasses',
+        required=False
+    )
 
     is_local = schema.Bool(
         title=_(u"Local portlet"),
         description=_(u" "),
-        required=False
-    )
-
-    css_class = schema.Choice(
-        title=_(u"CSS class"),
-        description=_(u" "),
-        vocabulary='collective.portletmetadata.CssClasses',
         required=False
     )
 
@@ -42,4 +42,16 @@ class IPortletMetadata(Interface):
         description=_(u"Use special tags to exclude from google indexing"),
         required=False,
         default=False
+    )
+
+
+class IPortletHeaderImage(Interface):
+    """ Schema for portlet header image """
+
+    # Prefixed with 'extender_' because we save the image as an attribute on
+    # the portlet assignment, so we are able to traverse using @@images
+    extender_header_image = NamedBlobImage(
+        title=_(u"Header image"),
+        description=_(u"Image placed in the portlet header."),
+        required=False,
     )

@@ -28,15 +28,58 @@
 
   <!-- Core functionality -->
 
-  <adapter factory=".metadata.PortletMetadataAdapter"/>
+  <adapter factory=".storage.PortletSettingsAdapter"/>
+  <adapter
+      for="zope.interface.Interface
+           zope.publisher.interfaces.browser.IDefaultBrowserLayer
+           plone.app.portlets.browser.interfaces.IPortletAddForm"
+      factory=".formextender.PortletSettingsFormExtender"
+      provides="plone.z3cform.fieldsets.interfaces.IFormExtender"
+      name="portletsettings.extender" />
+  <adapter
+      for="zope.interface.Interface
+           zope.publisher.interfaces.browser.IDefaultBrowserLayer
+           plone.app.portlets.browser.interfaces.IPortletEditForm"
+      factory=".formextender.PortletSettingsFormExtender"
+      provides="plone.z3cform.fieldsets.interfaces.IFormExtender"
+      name="portletsettings.extender" />
+
+  <adapter factory=".storage.PortletHeaderImageAdapter"/>
+  <adapter
+      for="zope.interface.Interface
+           zope.publisher.interfaces.browser.IDefaultBrowserLayer
+           plone.app.portlets.browser.interfaces.IPortletAddForm"
+      factory=".formextender.HeaderImageFormExtender"
+      provides="plone.z3cform.fieldsets.interfaces.IFormExtender"
+      name="headerimage.extender" />
+  <adapter
+      for="zope.interface.Interface
+           zope.publisher.interfaces.browser.IDefaultBrowserLayer
+           plone.app.portlets.browser.interfaces.IPortletEditForm"
+      factory=".formextender.HeaderImageFormExtender"
+      provides="plone.z3cform.fieldsets.interfaces.IFormExtender"
+      name="headerimage.extender" />
 
   <browser:page
-      name="edit-portlet-metadata"
-      class=".metadata.PortletMetadataEditForm"
+      allowed_attributes="scale tag"
+      class=".imagetraversal.PortletImageScaling"
       for="plone.portlets.interfaces.IPortletAssignment"
-      permission="plone.app.portlets.ManageOwnPortlets"
-      />
+      name="images"
+      permission="zope2.View"
+  />
 
+<!--   <class class="plone.portlets.settings.PortletAssignmentSettings">
+      <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
+  </class>
+  <class class="collective.portletmetadata.metadata.PortletMetadataAdapter">
+      <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
+  </class>
+ -->
+<!--   <adapter
+      factory=".imagetraversal.ImageScalingFactory"
+      for="*"
+  />
+ -->
   <browser:page
       name="portletmetadata-controlpanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
@@ -56,13 +99,6 @@
   <browser:jbot
       directory="overrides"
       layer=".interfaces.IBrowserLayer" />
-
-  <monkey:patch
-        description="Adds metadata url to editmanager"
-        class="plone.app.portlets.browser.editmanager.EditPortletManagerRenderer"
-        original="portlets_for_assignments"
-        replacement=".patches.portlets_for_assignments"
-        />
 
   <monkey:patch
         description="Propagate portlet assignment settings to the column renderer"

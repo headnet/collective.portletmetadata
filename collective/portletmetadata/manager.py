@@ -1,16 +1,13 @@
-from zope.interface import Interface
-from zope.component import adapts
-from zope.publisher.interfaces.browser import IBrowserView
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-
-from Acquisition import aq_inner, aq_parent
-
+from Acquisition import aq_inner
+from Acquisition import aq_parent
+from plone.app.portlets.interfaces import IColumn
+from plone.app.portlets.manager import ColumnPortletManagerRenderer as BaseColumnPortletManagerRenderer
 from Products.CMFPlone.utils import isDefaultPage
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
-from plone.app.portlets.interfaces import IColumn
-from plone.app.portlets.manager import ColumnPortletManagerRenderer as \
-    BaseColumnPortletManagerRenderer
+from zope.component import adapts
+from zope.interface import Interface
+from zope.publisher.interfaces.browser import IBrowserView
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class ColumnPortletManagerRenderer(BaseColumnPortletManagerRenderer):
