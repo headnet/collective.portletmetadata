@@ -60,26 +60,20 @@
       provides="plone.z3cform.fieldsets.interfaces.IFormExtender"
       name="headerimage.extender" />
 
+  <class class="plone.app.portlets.portlets.base.Assignment">
+    <!-- Make it possible to traverse to image scales on portlets -->
+    <implements interface="plone.namedfile.interfaces.IImageScaleTraversable" />
+  </class>
+
+
   <browser:page
-      allowed_attributes="scale tag"
-      class=".imagetraversal.PortletImageScaling"
-      for="plone.portlets.interfaces.IPortletAssignment"
-      name="images"
+      allowed_attributes="portet_assignment_url"
+      class=".headerimagehelper.PortletHeaderImageView"
+      for="*"
+      name="portlet_header_image"
       permission="zope2.View"
   />
 
-<!--   <class class="plone.portlets.settings.PortletAssignmentSettings">
-      <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
-  </class>
-  <class class="collective.portletmetadata.metadata.PortletMetadataAdapter">
-      <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
-  </class>
- -->
-<!--   <adapter
-      factory=".imagetraversal.ImageScalingFactory"
-      for="*"
-  />
- -->
   <browser:page
       name="portletmetadata-controlpanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
