@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
    - _lazyLoadPortlets: ensures that the settings dict
      is exposed to the portlet renderer

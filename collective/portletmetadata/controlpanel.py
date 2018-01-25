@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from collective.portletmetadata import MessageFactory as _
 from collective.portletmetadata.interfaces import IMetadataSettings
 from plone.app.registry.browser import controlpanel

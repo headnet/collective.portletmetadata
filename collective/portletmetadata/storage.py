@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from collective.portletmetadata.interfaces import IPortletHeaderImage
 from collective.portletmetadata.interfaces import IPortletSettings
 from plone.portlets.interfaces import IPortletAssignment

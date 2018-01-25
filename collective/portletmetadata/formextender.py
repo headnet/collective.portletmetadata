@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from collective.portletmetadata.interfaces import IPortletHeaderImage
 from collective.portletmetadata.interfaces import IPortletSettings
 from plone.z3cform.fieldsets.extensible import FormExtender

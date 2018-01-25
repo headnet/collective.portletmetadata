@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from plone.memoize.view import memoize
 from plone.namedfile.scaling import ImageScaling
 from plone.portlets.interfaces import IPortletAssignmentSettings
