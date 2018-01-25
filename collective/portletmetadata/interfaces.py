@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from collective.portletmetadata import MessageFactory as _
 from plone.namedfile.field import NamedBlobImage
 from zope import schema
@@ -55,3 +56,11 @@ class IPortletHeaderImage(Interface):
         description=_(u"Image placed in the portlet header."),
         required=False,
     )
+
+    extender_thumb_scale = schema.Choice(
+        title=u'Billedstørrelse for headerbillede',
+        description=u"Vælg en billedstørrelse. "
+                    u"Størrelsen kan blive overstyret af det valgte layout.",
+        default=u'wideheader',
+        vocabulary='plone.app.vocabularies.ImagesScales',
+        required=False)
