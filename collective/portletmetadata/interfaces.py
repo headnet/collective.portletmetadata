@@ -61,6 +61,6 @@ class IPortletHeaderImage(Interface):
         title=u'Billedstørrelse for headerbillede',
         description=u"Vælg en billedstørrelse. "
                     u"Størrelsen kan blive overstyret af det valgte layout.",
-        default=u'wideheader',
+        default=u'portletheader',
         vocabulary='plone.app.vocabularies.ImagesScales',
         required=False)
